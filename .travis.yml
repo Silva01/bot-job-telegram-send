@@ -1,0 +1,26 @@
+language: java
+
+jdk:
+  - oraclejdk11
+
+services:
+  - docker
+
+before_install:
+  - chmod +x mvnw
+
+jobs:
+  include:
+  - stage: deploy
+    script:
+      - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      - docker build -t bot-job-send-telegram .
+      - docker images
+      - docker tag bot-job-send-telegram $DOCKER_USERNAME/bot-job-send-telegram:1.0.0
+      - docker push $DOCKER_USERNAME/bot-job-send-telegram:1.0.0
+
+stages:
+  - compile
+  - test
+  - name: deploy
+    if: branch = master
