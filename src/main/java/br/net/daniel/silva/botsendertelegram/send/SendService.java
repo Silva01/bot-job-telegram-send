@@ -15,9 +15,11 @@ public class SendService {
 
     public void telegram(SendDTO mensagem) {
         TelegramBot bot = new TelegramBot(telegramToken);
+        log.debug("[TELEGRAM-SEND] - Iniciando envio de mensagem para usuario: {}", mensagem.getIdTelegramUser());
         mensagem.getMessages()
                 .stream()
                 .map(d -> new SendMessage(mensagem.getIdTelegramUser(), d))
                 .forEach(bot::execute);
+        log.info("[TELEGRAM-SEND] - Enviado mensagem com sucesso");
     }
 }

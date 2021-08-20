@@ -26,6 +26,7 @@ public class Receiver {
     @RabbitHandler
     public void receive(byte[] mensagem) {
         try {
+            log.debug("[TELEGRAM-SEND] - Recebendo mensagem da fila: {} e convertendo para envio", mensagem);
             sendService.telegram(ConvertUtil.jsonToSendDTO(new String(mensagem, StandardCharsets.UTF_8)));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
