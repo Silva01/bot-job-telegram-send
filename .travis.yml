@@ -11,6 +11,8 @@ before_install:
 
 jobs:
   include:
+  - stage: teste
+    script: mvn test
   - stage: deploy
     if: branch = master
     script:
