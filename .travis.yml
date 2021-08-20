@@ -18,9 +18,3 @@ jobs:
       - docker images
       - docker tag bot-job-send-telegram $DOCKER_USERNAME/bot-job-send-telegram:1.0.0
       - docker push $DOCKER_USERNAME/bot-job-send-telegram:1.0.0
-
-stages:
-  - compile
-  - test
-  - name: deploy
-    if: branch = master
