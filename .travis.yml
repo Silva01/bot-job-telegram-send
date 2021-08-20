@@ -12,6 +12,7 @@ before_install:
 jobs:
   include:
   - stage: deploy
+    if: branch = master
     script:
       - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
       - docker build -t bot-job-send-telegram .
