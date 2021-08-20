@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+bot.token: teste
+
+spring:
+  rabbitmq:
+    host: teste
+    port: 90
+    username: teste
+    password: teste
