@@ -19,5 +19,5 @@ jobs:
       - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
       - docker build -t bot-job-send-telegram .
       - docker images
-      - docker tag bot-job-send-telegram $DOCKER_USERNAME/bot-job-send-telegram:1.0.1
-      - docker push $DOCKER_USERNAME/bot-job-send-telegram:1.0.1
+      - docker tag bot-job-send-telegram $DOCKER_USERNAME/bot-job-send-telegram:1.0.2
+      - docker push $DOCKER_USERNAME/bot-job-send-telegram:1.0.2
