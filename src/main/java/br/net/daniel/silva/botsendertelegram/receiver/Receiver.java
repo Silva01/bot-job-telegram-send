@@ -24,10 +24,10 @@ public class Receiver {
     }
 
     @RabbitHandler
-    public void receive(byte[] mensagem) {
+    public void receive(String mensagem) {
         try {
             log.debug("[TELEGRAM-SEND] - Recebendo mensagem da fila: {} e convertendo para envio", mensagem);
-            sendService.telegram(ConvertUtil.jsonToSendDTO(new String(mensagem, StandardCharsets.UTF_8)));
+            sendService.telegram(ConvertUtil.jsonToSendDTO(mensagem));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
