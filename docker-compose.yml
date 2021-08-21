@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  rabbiq:
+    image: rabbitmq:3.8.3-management
+    environment:
+      - "RABBITMQ_DEFAULT_USER=admin"
+      - "RABBITMQ_DEFAULT_PASS=admin"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  queue:
+    image: silva01/bot-job-send-telegram:1.0.0
+    environment:
+      - "TOKEN_TELEGRAM=1929005683:AAEVradd1WgaMFGbw-xs1MRr4CGOUuHhX1E"
+      - "RABBIT_HOST=rabbiq"
+      - "RABBIT_PORT=5672"
+      - "RABBIT_USER=admin"
+      - "RABBIT_PASS=admin"
+    links:
+      - rabbiq
