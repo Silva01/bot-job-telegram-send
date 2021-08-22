@@ -9,3 +9,5 @@ spring:
     port: 90
     username: teste
     password: teste
+
+queue.url.send: ${QUEUE_URL:jarvis.send.telegram}

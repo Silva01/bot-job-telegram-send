@@ -9,3 +9,5 @@ spring:
     port: ${RABBIT_PORT}
     username: ${RABBIT_USER}
     password: ${RABBIT_PASS}
+
+queue.url.send: ${QUEUE_URL:jarvis.send.telegram}
